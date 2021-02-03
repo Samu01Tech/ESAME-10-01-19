@@ -36,7 +36,7 @@ typedef struct Tacquisto{
             }
         }
         cout << "QTA=" << quantita;
-        cout << "prezzo=" << prezzo;
+        cout << " prezzo=" << prezzo;
     }
 } Tacquisto;
 typedef struct Tnodo {
@@ -124,7 +124,7 @@ void addAcquisto(Tnodo* neg[], int dim, Tacquisto a){
 
 void stampaNegozi(Tnodo* neg[], int dim){
   int i;
-  for(i = 0; i<dim-1; i++){
+  for(i = 0; i<dim; i++){
     cout << "Negozio " << i << endl;
     Tnodo* q = neg[i];
     while(q != NULL){
