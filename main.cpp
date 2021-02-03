@@ -113,9 +113,8 @@ void newAcquisto(Tacquisto* a){
 
 void addAcquisto(Tnodo* neg[], int dim, Tacquisto a){
   int x = random(dim-1, 0);
-  Tnodo* q = new Tnodo();
-  q->dato = a;
-  q->next = neg[x];
+  Tnodo* q = new Tnodo(a, neg[x]);
+  neg[x] = q;
 }
 
 void stampaNegozi(Tnodo* neg[], int dim){
