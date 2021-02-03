@@ -16,6 +16,9 @@ typedef struct Tacquisto{
         prezzo = 0.0;
         tipoProdotto = TECH;
     }
+    ~Tacquisto(){
+      //
+    }
     void stampa() const{
         cout << nomeProdotto;
         switch(tipoProdotto){
@@ -47,6 +50,9 @@ typedef struct Tnodo {
         dato = a;
         next = n;
     }
+    ~Tnodo(){
+      //
+    }
     void stampa() const{
         dato.stampa();
     }
@@ -60,13 +66,14 @@ int contaAcquisti(Tnodo* neg[], int dim, Tprodotto tp);
 
 
 int main() {
-
     Tnodo* negozio[DIM];
     for (int i=0; i<DIM; i++) { negozio[i] = NULL; }
     Tacquisto o;
     for (int i=0; i<5; i++) {newAcquisto(&o); addAcquisto(negozio, DIM, o); }
-  /*
+  cout << "prima"<<endl;
     stampaNegozi(negozio, DIM);
+  cout << "dopo" << endl;
+    /*
     cout << contaAcquisti(negozio, DIM, LIBRI);
     return 0;
   */
@@ -106,18 +113,19 @@ void newAcquisto(Tacquisto* a){
 
 void addAcquisto(Tnodo* neg[], int dim, Tacquisto a){
   int x = random(dim-1, 0);
-  Tnodo* q = neg[x];
-  Tnodo* s = new Tnodo(a, q);
-  neg[x] = s;
+  Tnodo* q = new Tnodo();
+  q->dato = a;
+  q->next = neg[x];
 }
 
 void stampaNegozi(Tnodo* neg[], int dim){
   int i;
   for(i = 0; i<dim-1; i++){
-    Tnodo* q = por[x];
-    while(q != 0){
+    Tnodo* q = neg[i];
+    while(q != NULL){
       q->stampa();
-      q->next;
+      q = q->next;
     }
+    cout << endl;
   }
 }
