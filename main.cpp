@@ -69,14 +69,16 @@ int main() {
     Tnodo* negozio[DIM];
     for (int i=0; i<DIM; i++) { negozio[i] = NULL; }
     Tacquisto o;
-    for (int i=0; i<5; i++) {newAcquisto(&o); addAcquisto(negozio, DIM, o); }
-  cout << "prima"<<endl;
+    for (int i=0; i<5; i++) {
+        newAcquisto(&o); 
+        addAcquisto(negozio, DIM, o); 
+    }
     stampaNegozi(negozio, DIM);
-  cout << "dopo" << endl;
     /*
     cout << contaAcquisti(negozio, DIM, LIBRI);
     return 0;
   */
+ system("PAUSE");
 }
 
 int random(int max, int min){
@@ -112,8 +114,10 @@ void newAcquisto(Tacquisto* a){
 }
 
 void addAcquisto(Tnodo* neg[], int dim, Tacquisto a){
-  int x = random(dim-1, 0);
-  Tnodo* q = new Tnodo(a, neg[x]);
+  int x = 0;//random(dim-1, 0);
+  Tnodo* q = new Tnodo();
+  q->dato = a;
+  q->next = neg[x];
   neg[x] = q;
 }
 
@@ -123,6 +127,7 @@ void stampaNegozi(Tnodo* neg[], int dim){
     Tnodo* q = neg[i];
     while(q != NULL){
       q->stampa();
+      cout << endl;
       q = q->next;
     }
     cout << endl;
