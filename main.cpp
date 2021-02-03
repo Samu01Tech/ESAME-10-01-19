@@ -52,7 +52,8 @@ typedef struct Tnodo {
     }
 } Tnodo;
 
-void newAcquisto(Tacquisto a);
+int random(int max, int min);
+void newAcquisto(Tacquisto* a);
 void addAcquisto(Tnodo* neg, int dim, Tacquisto a);
 void stampaNegozi(Tnodo* neg, int dim);
 int contaAcquisti(Tnodo* neg, int dim, Tprodotto tp);
@@ -68,4 +69,36 @@ int main() {
     cout << contaAcquisti(negozio, DIM, LIBRI);
     return 0;
   */
+}
+
+int random(int max, int min){
+  return rand() % (max - min + 1) + min;
+}
+
+void newAcquisto(Tacquisto* a){
+  //tipoProdotto
+  switch(random(2, 0)){
+      case 0:{
+          a->tipoProdotto = MUSICA;
+          break;
+      }
+      case 1:{
+          a->tipoProdotto = LIBRI;
+          break;
+      }
+      case 2:{
+          a->tipoProdotto = TECH;
+          break;
+      }
+  }
+  //quantita
+  do{
+    cout << "Quantità: ";
+    cin >> a->quantita;
+  }while(a->quantita < 1 || a->quantita > 10);
+  //prezzo
+  a->prezzo = (random(9999, 500)/100.00);
+  //nomeProdotto
+  cout << "Nome prodotto: ";
+  cin >> a->nomeProdotto;
 }
