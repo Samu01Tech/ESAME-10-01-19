@@ -110,3 +110,14 @@ void addAcquisto(Tnodo* neg[], int dim, Tacquisto a){
   Tnodo* s = new Tnodo(a, q);
   neg[x] = s;
 }
+
+void stampaNegozi(Tnodo* neg[], int dim){
+  int i;
+  for(i = 0; i<dim-1; i++){
+    Tnodo* q = por[x];
+    while(q != 0){
+      q->stampa();
+      q->next;
+    }
+  }
+}
