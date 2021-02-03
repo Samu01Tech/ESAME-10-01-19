@@ -66,6 +66,7 @@ int contaAcquisti(Tnodo* neg[], int dim, Tprodotto tp);
 
 
 int main() {
+  srand(time(0));
     Tnodo* negozio[DIM];
     for (int i=0; i<DIM; i++) { negozio[i] = NULL; }
     Tacquisto o;
@@ -114,7 +115,7 @@ void newAcquisto(Tacquisto* a){
 }
 
 void addAcquisto(Tnodo* neg[], int dim, Tacquisto a){
-  int x = 0;//random(dim-1, 0);
+  int x = random(dim-1, 0);
   Tnodo* q = new Tnodo();
   q->dato = a;
   q->next = neg[x];
@@ -124,6 +125,7 @@ void addAcquisto(Tnodo* neg[], int dim, Tacquisto a){
 void stampaNegozi(Tnodo* neg[], int dim){
   int i;
   for(i = 0; i<dim-1; i++){
+    cout << "Negozio " << i << endl;
     Tnodo* q = neg[i];
     while(q != NULL){
       q->stampa();
