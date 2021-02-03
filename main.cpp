@@ -24,11 +24,11 @@ typedef struct Tacquisto{
                 break;
             }
             case 1:{
-                cout << " (LIBRI) "
+                cout << " (LIBRI) ";
                 break;
             }
             case 2:{
-                cout << " (TECH) "
+                cout << " (TECH) ";
                 break;
             }
         }
@@ -54,17 +54,18 @@ typedef struct Tnodo {
 
 int random(int max, int min);
 void newAcquisto(Tacquisto* a);
-void addAcquisto(Tnodo* neg, int dim, Tacquisto a);
-void stampaNegozi(Tnodo* neg, int dim);
-int contaAcquisti(Tnodo* neg, int dim, Tprodotto tp);
+void addAcquisto(Tnodo* neg[], int dim, Tacquisto a);
+void stampaNegozi(Tnodo* neg[], int dim);
+int contaAcquisti(Tnodo* neg[], int dim, Tprodotto tp);
 
 
 int main() {
-  /*
+
     Tnodo* negozio[DIM];
     for (int i=0; i<DIM; i++) { negozio[i] = NULL; }
     Tacquisto o;
     for (int i=0; i<5; i++) {newAcquisto(&o); addAcquisto(negozio, DIM, o); }
+  /*
     stampaNegozi(negozio, DIM);
     cout << contaAcquisti(negozio, DIM, LIBRI);
     return 0;
@@ -101,4 +102,11 @@ void newAcquisto(Tacquisto* a){
   //nomeProdotto
   cout << "Nome prodotto: ";
   cin >> a->nomeProdotto;
+}
+
+void addAcquisto(Tnodo* neg[], int dim, Tacquisto a){
+  int x = random(dim-1, 0);
+  Tnodo* q = neg[x];
+  Tnodo* s = new Tnodo(a, q);
+  neg[x] = s;
 }
