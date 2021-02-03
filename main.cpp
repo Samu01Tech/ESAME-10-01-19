@@ -52,6 +52,11 @@ typedef struct Tnodo {
     }
 } Tnodo;
 
+void newAcquisto(Tacquisto a);
+void addAcquisto(Tnodo* neg, int dim, Tacquisto a);
+void stampaNegozi(Tnodo* neg, int dim);
+int contaAcquisti(Tnodo* neg, int dim, Tprodotto tp);
+
 
 int main() {
   /*
