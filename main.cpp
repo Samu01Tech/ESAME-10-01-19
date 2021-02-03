@@ -54,6 +54,7 @@ typedef struct Tnodo {
 
 
 int main() {
+  /*
     Tnodo* negozio[DIM];
     for (int i=0; i<DIM; i++) { negozio[i] = NULL; }
     Tacquisto o;
@@ -61,4 +62,5 @@ int main() {
     stampaNegozi(negozio, DIM);
     cout << contaAcquisti(negozio, DIM, LIBRI);
     return 0;
+  */
 }
